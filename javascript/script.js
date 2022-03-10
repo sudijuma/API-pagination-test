@@ -24,6 +24,7 @@ async function getPokemonName(pagination) {
 
         API_URL_NEXT = responseJSON.next;
         API_URL_PREV = responseJSON.previous;
+        previousBTN.disabled = API_URL_PREV === null;
         const pokemonData = responseJSON.results;
         pokemonContainer.innerHTML = "";
         for (let i = 0; i < pokemonData.length; i++) {
@@ -35,7 +36,7 @@ async function getPokemonName(pagination) {
     }
 }
 getPokemonName();
-
+/* previousBTN.disabled = API_URL_PREVIOUS === null; */
 //Previous
 let handleClickPrev = function () {
     console.log("You want to go back hot stuff?");
@@ -53,6 +54,9 @@ let handleClickNext = function () {
 nextBTN.addEventListener("click", handleClickNext);
 
 
+/* if (API_URL_PREV === null) {
+    previousBTN.disabled = true;
+} */
 
 /* async function getPokemonNames(pagination) {
     try {
