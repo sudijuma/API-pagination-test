@@ -10,7 +10,6 @@ let API_URL_PREV = "";
 
 async function getPokemonName(pagination) {
     try {
-        console.log(pagination)
         let API_TO_USE;
         if (pagination === "next") {
             API_TO_USE = API_URL_NEXT;
@@ -19,6 +18,7 @@ async function getPokemonName(pagination) {
         } else {
             API_TO_USE = API_URL;
         }
+        
         const response = await fetch(API_TO_USE);
         const responseJSON = await response.json();
 
